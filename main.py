@@ -11,6 +11,7 @@ qq_account = ""
 #群号
 group_id = ""
 download_thread_num = 3
+illegal_chars = ['\\', '/', '*', '?', ':', '"', '<', '>', '|']
 
 def random_len(length):
     return random.randrange(int('1' + '0' * (length - 1)), int('9' * length))
@@ -72,6 +73,7 @@ for i in range(1,len(data.xpath('//*[@id="app"]/div[2]/*'))):
         else:
             img = data.xpath(current_pos+'/div[last()-1]/div/img/@src')[0][0:-10]
             essence["content"].append(img)
+            download_list.append(img)
     totalData.append(essence)
 #输出txt文件
 file = open("output.txt","w",encoding = "utf-8")
@@ -87,6 +89,8 @@ def download(imglist):
         name = i.split('/')[-1].split('&')[0].split('=')[-1]
         if not '.' in name[-5:]:
             name = name + '.jfif'
+        for char in illegal_chars:
+            name = name.replace(char,'_')
         with open('img/' + name,'wb') as f:
             f.write(imgdata)
             f.close()
