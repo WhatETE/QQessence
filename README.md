@@ -12,7 +12,9 @@ ps:对转发群文件、外部链接（如qq音乐分享）等精华消息，仅
 
 ****
 2023.10.18
-由Maze-is-moon补充，p_skey及skey参数也可登录qq群官网：https://qun.qq.com/，从cookie中获取
+
+由Maze-is-moon补充，p_skey及skey参数也可登录qq群官网：https://qun.qq.com 从cookie中获取
+
 参考：https://www.52pojie.cn/thread-835096-1-1.html
 
 ****
